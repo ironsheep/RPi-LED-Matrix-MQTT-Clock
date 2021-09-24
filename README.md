@@ -21,6 +21,16 @@ The files associated with the project will all appear here as we finish each of 
 
 ---
 
+### The Clock Display PCB
+
+Top 3d view of our display board:
+
+![Display Board Top](Images/SmartClockDisplay-top2.png)
+
+Bottom 3d view of our display board:
+
+![Display Board Bottom](Images/SmartClockDisplay-bot2.png)
+
 ## License
 
 Copyright © 2021 Iron Sheep Productions, LLC. All rights reserved.<br />
