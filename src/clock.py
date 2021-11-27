@@ -8,11 +8,9 @@ from os.path import isfile, join, splitext
 from PIL import Image, ImageOps
 from datetime import datetime
 
-panelCount = 4
-panelWidth = 8
-panelHeight = 8
-panelTotal = panelWidth * panelHeight
-dotCount = panelTotal * panelCount
+panelWidth = 40 
+panelHeight = 10
+dotCount = panelWidth * panelHeight
 asciiDir = './ascii'
 
 FILENAME = asciiDir + '/' + '48.png'
@@ -23,7 +21,7 @@ dots = dotstar.DotStar(
         board.MOSI, 
         dotCount, 
         auto_write=False,
-        brightness=0.1
+        brightness=0.05
     )
 
 def loadImage(filename):
@@ -82,7 +80,16 @@ def showText(text, xOffset, yOffset):
         x = showImage(asciiImage, x, yOffset) + 1
 
 def getPixel(col, row):
-    pixel = (panelHeight * col) + row
+    baseCount = (row) * panelWidth
+
+
+    # If we are an even row, count lef to right
+    if (row % 2) == 0:
+       pixel = baseCount + col
+    else:
+       pixel = baseCount + (panelWidth - col) -1
+
+    #print('col %d row %d baseCount %d pixel %d even %d' % (col, row, baseCount, pixel, row%2))
     return pixel
 
 
